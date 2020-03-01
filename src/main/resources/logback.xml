@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="true">
+<!--https://www.cnblogs.com/fpqi/p/9621092.html-->
+<configuration debug="false" scan="true" scanPeriod="3 seconds">
+	<!--设置日志输出为控制台-->
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<!-- encoders are by default assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%X{userId}] [%X{requestId}] %logger - %msg%n</pattern>
 		</encoder>
 	</appender>
 
-	<root level="debug">
-		<appender-ref ref="STDOUT" />
+	<!--设置日志输出为文件-->
+<!--	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--		<File>logFile.log</File>-->
+<!--		<rollingPolicy  class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--			<FileNamePattern>logs/logFile.%d{yyyy-MM-dd_HH-mm}.log.zip</FileNamePattern>-->
+<!--		</rollingPolicy>-->
+
+<!--		<layout class="ch.qos.logback.classic.PatternLayout">-->
+<!--			<Pattern>%d{HH:mm:ss,SSS} [%thread] %-5level %logger{32} - %msg%n</Pattern>-->
+<!--		</layout>-->
+<!--	</appender>-->
+
+	<root>
+		<level value="DEBUG"/>
+		<appender-ref ref="STDOUT"/>
+<!--		<appender-ref ref="FILE"/>-->
 	</root>
 </configuration>
