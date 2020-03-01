@@ -169,12 +169,6 @@
   </dependencies>
 
   <build>
-    <finalName>seckill</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
+    <finalName>${project.artifactId}</finalName>
   </build>
 </project>
